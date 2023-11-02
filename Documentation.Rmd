@@ -1,0 +1,51 @@
+---
+title: "Documentation"
+output: html_document
+date: "2023-11-02"
+---
+
+# Introduction
+
+This document provides documentation for the `transform_data_dev` function.
+
+# Function Usage
+
+The `transform_data_dev` function allows you to calculate either the average or total income for each age group.
+
+## Calculate Average Income
+
+```{r}
+source("Exercise1.R")
+```
+
+To calculate the average income for each age group, use the following:
+
+```{r}
+library(dplyr)  # for data manipulation
+
+# Load the sample data from a CSV file
+data <- read.csv("Exercise1_data.csv")
+
+# Calculate average income
+result <- transform_data_dev(data, calc_method = "average")
+result
+```
+
+## Calculate Total Income
+
+To calculate the total income for each age group, use the following:
+
+```{R}
+library(dplyr)  # for data manipulation
+
+# Load the sample data from a CSV file
+data <- read.csv("Exercise1_data.csv")
+
+# Calculate total income
+result <- transform_data_dev(data, calc_method = "total")
+result
+```
+
+## Conclusion
+
+This function provides flexibility in calculating income statistics based on the chosen method.
