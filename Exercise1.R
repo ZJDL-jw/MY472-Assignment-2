@@ -16,7 +16,3 @@ transform_data_dev <- function(data, calc_method = "average") {
   return(result)
 }
 
-data <- read_csv("Exercise1_data.csv")
-results <- transform_data_dev(data, calc_method = "total")
-results
-

@@ -4,6 +4,15 @@ output: html_document
 date: "2023-11-02"
 ---
 
+```{r setup, include=FALSE} 
+# this chunk contains code that sets global options for the entire .Rmd. 
+# we use include=FALSE to suppress it from the top of the document, but it will still appear in the appendix. 
+
+knitr::opts_chunk$set(echo = FALSE) # actually set the global chunk options. 
+# we set echo=FALSE to suppress code such that it by default does not appear throughout the document. 
+# note: this is different from .Rmd default
+```
+
 # Introduction
 
 This document provides documentation for the `transform_data_dev` function.
@@ -22,9 +31,10 @@ To calculate the average income for each age group, use the following:
 
 ```{r}
 library(dplyr)  # for data manipulation
+library(readr)
 
 # Load the sample data from a CSV file
-data <- read.csv("Exercise1_data.csv")
+data <- read_csv("Exercise1_data.csv")
 
 # Calculate average income
 result <- transform_data_dev(data, calc_method = "average")
@@ -49,3 +59,10 @@ result
 ## Conclusion
 
 This function provides flexibility in calculating income statistics based on the chosen method.
+
+## Appendix: All code in this assignment
+
+```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE} 
+# this chunk generates the complete code appendix. 
+# eval=FALSE tells R not to run (``evaluate'') the code here (it was already run before).
+```

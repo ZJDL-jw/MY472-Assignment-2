@@ -366,10 +366,8 @@ display: none;
 either the average or total income for each age group.</p>
 <div id="calculate-average-income" class="section level2">
 <h2>Calculate Average Income</h2>
-<pre class="r"><code>source(&quot;Exercise1.R&quot;)</code></pre>
 <p>To calculate the average income for each age group, use the
 following:</p>
-<pre class="r"><code>library(dplyr)  # for data manipulation</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;dplyr&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:stats&#39;:
@@ -378,42 +376,64 @@ following:</p>
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code># Load the sample data from a CSV file
-data &lt;- read.csv(&quot;Exercise1_data.csv&quot;)
-
-# Calculate average income
-result &lt;- transform_data_dev(data, calc_method = &quot;average&quot;)
-result</code></pre>
+<pre><code>## Rows: 9 Columns: 2
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## dbl (2): age, income
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre><code>##   age average_income
-## 1  20           5000
-## 2  25           6000
+## 1  20           4000
+## 2  25           3500
 ## 3  30           7000
 ## 4  35           8000
-## 5  40           9000</code></pre>
+## 5  40           8000</code></pre>
 </div>
 <div id="calculate-total-income" class="section level2">
 <h2>Calculate Total Income</h2>
 <p>To calculate the total income for each age group, use the
 following:</p>
-<pre class="r"><code>library(dplyr)  # for data manipulation
+<pre><code>##   age total_income
+## 1  20         8000
+## 2  25         7000
+## 3  30         7000
+## 4  35         8000
+## 5  40        24000</code></pre>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>This function provides flexibility in calculating income statistics
+based on the chosen method.</p>
+</div>
+<div id="appendix-all-code-in-this-assignment" class="section level2">
+<h2>Appendix: All code in this assignment</h2>
+<pre class="r"><code># this chunk contains code that sets global options for the entire .Rmd. 
+# we use include=FALSE to suppress it from the top of the document, but it will still appear in the appendix. 
+
+knitr::opts_chunk$set(echo = FALSE) # actually set the global chunk options. 
+# we set echo=FALSE to suppress code such that it by default does not appear throughout the document. 
+# note: this is different from .Rmd default
+source(&quot;Exercise1.R&quot;)
+library(dplyr)  # for data manipulation
+library(readr)
+
+# Load the sample data from a CSV file
+data &lt;- read_csv(&quot;Exercise1_data.csv&quot;)
+
+# Calculate average income
+result &lt;- transform_data_dev(data, calc_method = &quot;average&quot;)
+result
+library(dplyr)  # for data manipulation
 
 # Load the sample data from a CSV file
 data &lt;- read.csv(&quot;Exercise1_data.csv&quot;)
 
 # Calculate total income
 result &lt;- transform_data_dev(data, calc_method = &quot;total&quot;)
-result</code></pre>
-<pre><code>##   age total_income
-## 1  20         5000
-## 2  25         6000
-## 3  30         7000
-## 4  35         8000
-## 5  40         9000</code></pre>
-</div>
-<div id="conclusion" class="section level2">
-<h2>Conclusion</h2>
-<p>This function provides flexibility in calculating income statistics
-based on the chosen method.</p>
+result
+# this chunk generates the complete code appendix. 
+# eval=FALSE tells R not to run (``evaluate&#39;&#39;) the code here (it was already run before).</code></pre>
 </div>
 </div>
 
